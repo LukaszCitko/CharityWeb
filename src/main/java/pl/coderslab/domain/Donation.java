@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -16,7 +18,7 @@ public class Donation {
 
     @NotNull
     @ManyToMany
-    private Category category;
+    private List<Category> categories = new ArrayList<>();
 
     @NotNull
     @ManyToOne
@@ -42,12 +44,12 @@ private String pickUpComment;
         this.quantity = quantity;
     }
 
-    public Category getCategory() {
-        return category;
+    public List<Category> getCategories() {
+        return categories;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 
     public Institution getInstitution() {

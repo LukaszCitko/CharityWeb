@@ -3,6 +3,8 @@ package pl.coderslab.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+
+
 @Entity
 @Table(name="categories")
 public class Category {
@@ -22,5 +24,7 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
+
 
 }
