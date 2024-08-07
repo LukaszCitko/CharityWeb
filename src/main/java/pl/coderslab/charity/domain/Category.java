@@ -1,4 +1,6 @@
-package pl.coderslab.domain;
+package pl.coderslab.charity.domain;
+
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -6,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 
 @Entity
+@Data
 @Table(name="categories")
 public class Category {
     @Id
@@ -14,17 +17,5 @@ public class Category {
 
     @NotBlank
     private String name;
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {return name;}
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
 
 }
