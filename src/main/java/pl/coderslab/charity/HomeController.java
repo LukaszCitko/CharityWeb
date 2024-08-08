@@ -1,9 +1,8 @@
 package pl.coderslab.charity;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
@@ -11,17 +10,18 @@ import pl.coderslab.charity.repository.InstitutionRepository;
 @Controller
 public class HomeController {
 
-    @Autowired
-    InstitutionRepository Irepo;
-    @ModelAttribute
-    void listOfInstitution (Model model){
 
-        model.addAttribute("listOfInstitutions", Irepo.findAll());
+    private final InstitutionRepository irepo;
+
+    public HomeController(InstitutionRepository irepo) {
+
+        this.irepo = irepo;
     }
 
     @RequestMapping("/")
     public String homeAction(Model model){
-
+        model.addAttribute("listOfInstitutions", irepo.findAll(Pageable.ofSize(4)).getContent());
         return "index";}
+
        // return "institutionForm";}
     }

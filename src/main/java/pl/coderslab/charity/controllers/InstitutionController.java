@@ -8,19 +8,19 @@ import pl.coderslab.charity.domain.Institution;
 import pl.coderslab.charity.repository.InstitutionRepository;
 
 import javax.validation.Valid;
-import java.awt.print.Book;
+
 
 @Controller
 public class InstitutionController {
 
     @Autowired
-    InstitutionRepository Irepo;
+    InstitutionRepository irepo;
 
     @PostMapping(value = "/institution/add")
     @ResponseBody
     public String addInstitution(@Valid Institution institution) {
 
-        Irepo.save(institution);
+        irepo.save(institution);
         return "Id dodanej instytucji to:" + institution.getId();
     }
 }

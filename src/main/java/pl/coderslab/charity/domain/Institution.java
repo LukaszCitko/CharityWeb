@@ -7,7 +7,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Component
 @Data
 @Table(name="institutions")
 
@@ -19,7 +18,6 @@ public class Institution {
 
         @NotBlank
         private String name;
-
         private String description;
 }
 

@@ -7,4 +7,5 @@ import pl.coderslab.charity.domain.Institution;
 
 public interface InstitutionRepository extends JpaRepository <Institution, Long> {
 
+
 }

@@ -61,9 +61,9 @@
         <h2>O nas</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero
             optio esse quisquam illo omnis.</p>
-        <img src="<c:url value="resources/images/signature.svg"/>" class="about-us--text-signature" alt="Signature"/>
+        <img src="<c:url value="/resources/images/signature.svg"/>" class="about-us--text-signature" alt="Signature"/>
     </div>
-    <div class="about-us--image"> <img src="<c:url value="resources/images/about-us.jpg"/>" alt="People in circle"/>
+    <div class="about-us--image"> <img src="<c:url value="/resources/images/about-us.jpg"/>" alt="People in circle"/>
     </div>
 </section>
 
@@ -77,36 +77,19 @@
 
         <ul class="help--slides-items">
 
-
-             <c:forEach var="listOfInstitutions" items="${listofInstitutions}" varStatus="status" > 
             <li>
-                <c:if test="${status.index}  == 0 ">
+            <c:forEach var="listOfInstitutions" items="${listOfInstitutions}" varStatus="status">
                 <div class="col">
-                    <div class="title">${listofInstitutions.name}    <!--Fundacja "Dbam o Zdrowie"--></div>
-                    <div class="subtitle">${listofInstitutions.description} <!--Cel i misja: Pomoc dzieciom z ubogich rodzin.--></div>
+                    <div class="title">${listOfInstitutions.name} </div>
+                    <div class="subtitle">${listOfInstitutions.description}</div>
                 </div>
+                <c:if test="${status.count == 2}">
+                    </li><li>
+                </c:if><c:if test="${status.last}">
+                    </li>
                 </c:if>
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
-            </li>
+
             </c:forEach>
-
-
-            <li>
-                <div class="col">
-                    <div class="title">${listOfInstitutions.get(0).name}</div>
-<%--  Fundacja “Dla dzieci"                  --%>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-            </li>
-
         </ul>
     </div>
 
