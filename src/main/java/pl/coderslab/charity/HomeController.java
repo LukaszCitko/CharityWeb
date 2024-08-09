@@ -23,27 +23,13 @@ public class HomeController {
         this.irepo = irepo;
         this.drepo = drepo;
     }
-    public int DonationQuantityBag(){
 
-        List<Donation> donations = drepo.findAll();
 
-        int quantityBag = 0;
-        for (Donation donation : donations) quantityBag+=donation.getQuantity();
-        return quantityBag;
-    }
-    public int DonationQuantity(){
-
-        List<Donation> donations = drepo.findAll();
-
-        int quantityDonations = 0;
-        for (Donation donation : donations) quantityDonations++;
-        return quantityDonations;
-    }
     @RequestMapping("/")
     public String homeAction(Model model){
         model.addAttribute("listOfInstitutionsLimited", irepo.findAll(Pageable.ofSize(4)).getContent());
-        model.addAttribute("numberOfDonatedBags", DonationQuantityBag());
-        model.addAttribute("numberOfDonations", DonationQuantity());
+        model.addAttribute("numberOfDonatedBags", drepo.findQuantityBag());
+        model.addAttribute("numberOfDonations", drepo.count());
 
         return "index";}
 
