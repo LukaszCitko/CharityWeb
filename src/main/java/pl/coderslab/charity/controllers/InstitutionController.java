@@ -13,8 +13,12 @@ import javax.validation.Valid;
 @Controller
 public class InstitutionController {
 
-    @Autowired
-    InstitutionRepository irepo;
+
+    private final InstitutionRepository irepo;
+
+    public InstitutionController(InstitutionRepository irepo) {
+        this.irepo = irepo;
+    }
 
     @PostMapping(value = "/institution/add")
     @ResponseBody

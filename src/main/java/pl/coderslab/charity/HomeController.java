@@ -32,12 +32,26 @@ public class HomeController {
                  quantityBag+=donation.getQuantity();
         }
 
-    return quantityBag;}
+    return quantityBag;
+    }
+    public int DonationQuantity(){
+
+        List<Donation> donations = drepo.findAll();
+
+        int quantityDonations = 0;
+        for (Donation donation : donations) {
+            quantityDonations++;
+        }
+
+        return quantityDonations;
+    }
     @RequestMapping("/")
     public String homeAction(Model model){
         model.addAttribute("listOfInstitutions", irepo.findAll(Pageable.ofSize(4)).getContent());
         model.addAttribute("numberOfDonatedBags", DonationQuantityBag());
+        model.addAttribute("numberOfDonations", DonationQuantity());
+
         return "index";}
 
-       // return "institutionForm";}
+       // return "institutionForm";} // przygotowany layoutForm do dodawania instytucji
     }
