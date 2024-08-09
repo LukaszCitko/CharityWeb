@@ -77,10 +77,10 @@
         <ul class="help--slides-items">
 
             <li>
-            <c:forEach var="listOfInstitutions" items="${listOfInstitutions}" varStatus="status">
+            <c:forEach var="listOfInstitutionsLimited" items="${listOfInstitutionsLimited}" varStatus="status">
                 <div class="col">
-                    <div class="title">${listOfInstitutions.name} </div>
-                    <div class="subtitle">${listOfInstitutions.description}</div>
+                    <div class="title">${listOfInstitutionsLimited.name} </div>
+                    <div class="subtitle">${listOfInstitutionsLimited.description}</div>
                 </div>
                 <c:if test="${status.count == 2}">
                     </li><li>
