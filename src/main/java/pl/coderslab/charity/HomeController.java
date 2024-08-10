@@ -4,11 +4,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.charity.domain.Donation;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
-
-import java.util.List;
 
 
 @Controller
@@ -33,5 +30,6 @@ public class HomeController {
 
         return "index";}
 
-       // return "institutionForm";} // przygotowany layoutForm do dodawania instytucji
+       //return "institutionForm";} // przygotowany layoutForm do dodawania instytucji
+       //return "CategoryForm";} // przygotowany layoutForm do dodawania Kategorii
     }
