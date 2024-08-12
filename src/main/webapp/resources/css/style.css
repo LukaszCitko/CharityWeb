@@ -599,9 +599,12 @@ form .form-group--checkbox label {
 
 /* line 58, scss/modules/_forms.scss */
 form .form-group--checkbox input {
-  position: absolute;
-  opacity: 0;
-  display: none;
+  position: relative;
+  right: 30px;
+  top: 20px;
+  scale: 150%;
+  opacity: 100;
+  /*display: none;*/
 }
 
 /* line 64, scss/modules/_forms.scss */
@@ -611,7 +614,7 @@ form .form-group--checkbox input:checked + .checkbox {
 
 /* line 70, scss/modules/_forms.scss */
 form .form-group--checkbox .checkbox {
-  padding: 14px;
+  /*padding: 14px;*/
   border: 1px solid #3c3c3c;
   display: block;
   position: relative;
@@ -628,8 +631,10 @@ form .form-group--checkbox .checkbox:not(:empty) {
 
 /* line 82, scss/modules/_forms.scss */
 form .form-group--checkbox .checkbox.radio {
-  border-radius: 50%;
+  border-radius: 80%;
+
 }
+
 
 /* line 87, scss/modules/_forms.scss */
 form .form-group--checkbox .description {

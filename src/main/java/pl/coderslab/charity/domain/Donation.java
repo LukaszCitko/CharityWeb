@@ -19,10 +19,12 @@ public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+   // @NotEmpty
     private int quantity;
 
     @NotEmpty
     @ManyToMany
+    @JoinColumn(name = "category_ids")
     private List<Category> categories = new ArrayList<>();
 
     @NotNull

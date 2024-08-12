@@ -1,7 +1,6 @@
 package pl.coderslab.charity.domain;
 
 import lombok.Data;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

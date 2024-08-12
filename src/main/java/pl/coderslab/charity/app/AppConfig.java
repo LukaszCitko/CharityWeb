@@ -18,5 +18,4 @@ import javax.persistence.EntityManagerFactory;
 //// @EnableTransactionManagement
 //@EnableJpaRepositories(basePackages = "pl.coderslab.repository")
 public class AppConfig implements WebMvcConfigurer {
-
 }

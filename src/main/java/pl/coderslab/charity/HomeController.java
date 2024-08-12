@@ -3,9 +3,14 @@ package pl.coderslab.charity;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.charity.domain.Category;
+import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.DonationRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
+
+import java.util.List;
 
 
 @Controller
@@ -15,11 +20,24 @@ public class HomeController {
     private final InstitutionRepository irepo;
     private final DonationRepository drepo;
 
-    public HomeController(InstitutionRepository irepo, DonationRepository drepo) {
+    private final CategoryRepository crepo;
+
+
+    public HomeController(InstitutionRepository irepo, DonationRepository drepo, CategoryRepository crepo) {
 
         this.irepo = irepo;
         this.drepo = drepo;
+        this.crepo = crepo;
     }
+
+
+
+    @ModelAttribute("categories")
+    List<Category> allCategories() {
+        List<Category> categories = crepo.findAll();
+        return categories;
+    }
+
 
 
     @RequestMapping("/")
