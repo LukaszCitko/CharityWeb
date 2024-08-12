@@ -31,38 +31,16 @@ public class DonationController {
     @ModelAttribute
     void donationAtributes(Model model){
         model.addAttribute("donation", new Donation());
-
         model.addAttribute("institution", new Institution());
+        model.addAttribute("institutions", irepo.findAll());
+        model.addAttribute("categories", crepo.findAll());
     }
 
-    @ModelAttribute("institutions")
-    List<Institution> institutions(){
-        return irepo.findAll();
-    }
-
-    @ModelAttribute("categories")
-    List<Category> categories(){
-        return crepo.findAll();
-    }
 
     @RequestMapping("/form")
     public String donate(){ //Model model nie potrzebny bo przekazane przez ModelAtribute?
         return "form";
     }
 
-    @PostMapping("/addDonation")
-    public String addDonation(@Valid Donation donation, BindingResult bindingResult){
 
-//        if (bindingResult.hasErrors()) {
-//            return "form";
-//        }
-//        else {
-            System.out.println(donation);
-            //drepo.save(donation);
-//        }
-
-        // przekazac z powrotem instytucje i kategorie  (redirect:)
-
-        return "form-confirmation";
-    }
 }

@@ -19,7 +19,7 @@ public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-   // @NotEmpty
+    @NotNull
     private int quantity;
 
     @NotEmpty
