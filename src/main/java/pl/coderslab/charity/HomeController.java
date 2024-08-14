@@ -15,35 +15,21 @@ import java.util.List;
 
 @Controller
 public class HomeController {
-
-
     private final InstitutionRepository irepo;
     private final DonationRepository drepo;
-
     private final CategoryRepository crepo;
 
-
     public HomeController(InstitutionRepository irepo, DonationRepository drepo, CategoryRepository crepo) {
-
         this.irepo = irepo;
         this.drepo = drepo;
         this.crepo = crepo;
     }
 
 
-
-    @ModelAttribute("categories")
-    List<Category> allCategories() {
-        List<Category> categories = crepo.findAll();
-        return categories;
-    }
-
-
-
     @RequestMapping("/")
     public String homeAction(Model model){
         model.addAttribute("listOfInstitutionsLimited", irepo.findAll(Pageable.ofSize(4)).getContent());
-        model.addAttribute("numberOfDonatedBags", drepo.findQuantityBag());
+        model.addAttribute("numberOfDonatedBags", drepo.findQuantityBag().orElse(0));
         model.addAttribute("numberOfDonations", drepo.count());
 
         return "index";}

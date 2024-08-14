@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -20,11 +21,11 @@ public class Donation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    private int quantity;
+    private int quantity = 1 ;
 
     @NotEmpty
     @ManyToMany
-    @JoinColumn(name = "category_ids")
+    @JoinColumn(name = "category_id")
     private List<Category> categories = new ArrayList<>();
 
     @NotNull
@@ -32,12 +33,14 @@ public class Donation {
     @JoinColumn(name = "institution_id")
     private Institution institution;
 
-    @NotNull
+    @NotBlank
     private String street;
-    @NotNull
+    @NotBlank
     private String city;
-    @NotNull
+    @NotBlank
     private String zipCode;
+    @NotBlank
+    private String phone;
 
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -45,6 +48,6 @@ public class Donation {
     private LocalDate pickUpDate;
     @NotNull
     private LocalTime pickUpTime;
-    @NotNull
+    @NotBlank
     private String pickUpComment;
 }
