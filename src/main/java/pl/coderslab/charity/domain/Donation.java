@@ -4,9 +4,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -20,7 +18,9 @@ public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+
+
+    @Min(1)
     private int quantity = 1 ;
 
     @NotEmpty
@@ -48,6 +48,7 @@ public class Donation {
     private LocalDate pickUpDate;
     @NotNull
     private LocalTime pickUpTime;
-    @NotBlank
+
+    @Size(max = 100)
     private String pickUpComment;
 }

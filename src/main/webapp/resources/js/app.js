@@ -146,7 +146,10 @@ document.addEventListener("DOMContentLoaded", function() {
     /**
      * Update form front-end
      * Show next or previous section etc.
+     *
+     *
      */
+
     updateForm() {
       this.$step.innerText = this.currentStep;
 
@@ -163,7 +166,16 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
+
+
+
       // TODO: get data from inputs and show them in summary
+      // const input = document.getElementById("name");
+      // const inputValue = name.value;
+      //
+      // document.getElementById("name").innerHTML = `${inputValue}`;
+
+
     }
 
   }

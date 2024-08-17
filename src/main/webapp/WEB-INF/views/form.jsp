@@ -49,8 +49,8 @@
                 <c:forEach var="category" items="${categories}">
                 <div class="form-group form-group--checkbox">
                     <label>
+                        <form:checkbox path="categories" value="${category.id}"/>
                         <span class="checkbox"></span>
-                        <form:input path="categories" value="${categories}"></form:input>
                         <span class="description">${category.name}</span>
                     </label>
                 </div>
@@ -68,7 +68,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input  path="quantity" step="1" min="1" value="${quantity}"/>
+                        <form:input  path="quantity" type="number" step="1" min="1"/>
                     </label>
                 </div>
 
@@ -84,10 +84,10 @@
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
-                <c:forEach items="${institutions}" var="institution" >
+                <c:forEach var="institution" items="${institutions}" >
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:input path= "institution" value="${institution}"/>
+                            <form:radiobutton path= "institution" value="${institution.id}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                               <div class="title">${institution.name}</div>
@@ -113,26 +113,28 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Ulica
-                                <form:input  path="street"  type="text" value="${street}"/>   </label>
+                                <form:input  path="street"/>
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Miasto
-                                <form:input  path="city"  type="text" value="${city}"/> </label>
+                                <form:input  path="city" />
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Kod pocztowy
-                                <form:input  path="zipCode"  type="text" value="${zipCode}"/>
+                                <form:input  path="zipCode"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Numer telefonu
-                                <form:input  path="phone"  type="text" value="${phone}"/>
+                                <form:input  path="phone"/>
                             </label>
                         </div>
                     </div>
@@ -142,14 +144,14 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Data
-                                <form:input  path="pickUpDate"  type="date" value="${pickUpDate}"/>
+                                <form:input  path="pickUpDate"  type="date" />
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Godzina
-                                <form:input  path="pickUpTime"  type="time" value="${pickUpTime}"/>
+                                <form:input  path="pickUpTime"  type="time" />
                             </label>
                         </div>
 
@@ -194,10 +196,10 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="street"></li>
+                                <li id="city"></li>
+                                <li id="zipCode"></li>
+                                <li id="phone">123 456 789</li>
                             </ul>
                         </div>
 

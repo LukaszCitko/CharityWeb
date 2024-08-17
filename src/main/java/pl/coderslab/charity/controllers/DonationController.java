@@ -32,12 +32,10 @@ public class DonationController {
 
     @ModelAttribute(name = "institutions")
     List<Institution> allInstitutions(){
-        List<Institution> institutions = irepo.findAll();
-        return institutions; }
+        return irepo.findAll(); }
     @ModelAttribute(name = "categories")
     List<Category>  allCategories() {
-        List<Category> categories = crepo.findAll();
-        return categories;}
+        return crepo.findAll();}
 
 
     @RequestMapping("/form")
@@ -50,20 +48,14 @@ public class DonationController {
     public String addDonation(@Valid Donation donation, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()) {
-            System.out.println("**************************************************************");
             System.out.println("******************************************************************");
             System.out.println(donation);
-            System.out.println("****************************************************************");
-            System.out.println("*********************************************************************");
             return "form";
         }
 
         System.out.println("***ok*****ok********ok******ok*********ok*******ok******");
-        System.out.println("***ok*****ok********ok******ok*********ok*******ok******");
         System.out.println(donation);
-        System.out.println("****ok****ok*******ok******ok*****ok********ok*****ok*****");
-        System.out.println("****ok****ok*******ok******ok*****ok********ok*****ok*****");
-        //drepo.save(donation);
+        drepo.save(donation);
 
         return "form-confirmation";
     }
