@@ -170,10 +170,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
       // TODO: get data from inputs and show them in summary
-      // const input = document.getElementById("name");
-      // const inputValue = name.value;
-      //
-      // document.getElementById("name").innerHTML = `${inputValue}`;
+      const qualitySum = document.getElementById("quality")
+      const outputQuality = document.getElementById("SummaryQuantity");
+        //TODO categories summary
+       outputQuality.innerText = `${qualitySum.value} worki z kategorii: `;
+
+        //TODO  institution summary
+
+      const institutionSummary = document.querySelectorAll(".institutionToChoose")
+      const outputInstitution = document.getElementById("InstitutionSummary");
+      const institutionChecked = x();
+          function x(){
+        for (let institution of institutionSummary){
+          if (institution.checked) {return institution;}
+        else return 0 ;
+      }}
+      console.log(institutionChecked);
+       outputInstitution.innerText = `Dla fundacji: ${institutionChecked.name} `;
+
+      //const pickUpComment
+
+
 
 
     }

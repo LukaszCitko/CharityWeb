@@ -68,7 +68,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input  path="quantity" type="number" step="1" min="1"/>
+                        <form:input  id="quality" path="quantity" type="number" step="1" min="1"/>
                     </label>
                 </div>
 
@@ -86,8 +86,8 @@
 
                 <c:forEach var="institution" items="${institutions}" >
                     <div class="form-group form-group--checkbox">
-                        <label>
-                            <form:radiobutton path= "institution" value="${institution.id}"/>
+                        <label class="institutionToChoose" >
+                            <form:radiobutton  path= "institution" value="${institution.id}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                               <div class="title">${institution.name}</div>
@@ -113,28 +113,28 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Ulica
-                                <form:input  path="street"/>
+                                <form:input id="street" path="street"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Miasto
-                                <form:input  path="city" />
+                                <form:input id="city" path="city" />
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Kod pocztowy
-                                <form:input  path="zipCode"/>
+                                <form:input id="zipCode"  path="zipCode"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Numer telefonu
-                                <form:input  path="phone"/>
+                                <form:input id="phone"  path="phone"/>
                             </label>
                         </div>
                     </div>
@@ -144,21 +144,21 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Data
-                                <form:input  path="pickUpDate"  type="date" />
+                                <form:input id="pickUpDate"  path="pickUpDate"  type="date" />
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Godzina
-                                <form:input  path="pickUpTime"  type="time" />
+                                <form:input id="pickUpTime" path="pickUpTime"  type="time" />
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea path="pickUpComment" rows="5" />
+                                <form:textarea id="pickUpComment" path="pickUpComment" rows="5" />
                             </label>
                         </div>
                     </div>
@@ -179,14 +179,14 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                >${quantity} worki z kategorii </span>
+                                <span class="summary--text" id="SummaryQuantity"
+                                ></span>
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text"
-                                >Dla fundacji </span
+                                <span class="summary--text" id="InstitutionSummary"
+                                ></span
                                 >
                             </li>
                         </ul>
@@ -199,7 +199,7 @@
                                 <li id="street"></li>
                                 <li id="city"></li>
                                 <li id="zipCode"></li>
-                                <li id="phone">123 456 789</li>
+                                <li id="phone"></li>
                             </ul>
                         </div>
 
