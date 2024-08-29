@@ -172,26 +172,35 @@ document.addEventListener("DOMContentLoaded", function() {
       // TODO: get data from inputs and show them in summary
       const qualitySum = document.getElementById("quality")
       const outputQuality = document.getElementById("SummaryQuantity");
-        //TODO categories summary
+
+      //TODO categories summary
        outputQuality.innerText = `${qualitySum.value} worki z kategorii: `;
 
-        //TODO  institution summary
 
-      const institutionSummary = document.querySelectorAll(".institutionToChoose")
+
+
+      const institutionSummary = document.querySelectorAll(".institutionToChoose");
       const outputInstitution = document.getElementById("InstitutionSummary");
-      const institutionChecked = x();
-          function x(){
+
+      // wydobycie nazwy z instytucji
+      //console.log((document.getElementById("institution4").nextElementSibling.nextElementSibling.children[0].innerText))
+      //console.log((document.getElementById("institution4").parentElement.querySelector('.title')))
+      let institutionChecked = 0;
+
+
         for (let institution of institutionSummary){
-          if (institution.checked) {return institution;}
-        else return 0 ;
-      }}
-      console.log(institutionChecked);
-       outputInstitution.innerText = `Dla fundacji: ${institutionChecked.name} `;
 
-      //const pickUpComment
+           for(let children of institution.children) {
+             if (children.checked) {
+               institutionChecked = children.id
+             }
+           }
+        }
+       outputInstitution.innerText = `Dla fundacji: 
+                                      ${document.getElementById(institutionChecked).parentElement
+                                     .querySelector('.title').innerText} `;
 
-
-
+        // TODO const pickUpComment
 
     }
 
