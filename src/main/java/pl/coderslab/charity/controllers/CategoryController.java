@@ -7,7 +7,6 @@ import pl.coderslab.charity.domain.Category;
 import pl.coderslab.charity.repository.CategoryRepository;
 
 @Controller
-
 public class CategoryController {
 
     private final   CategoryRepository crepo;

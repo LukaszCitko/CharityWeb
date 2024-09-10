@@ -6,7 +6,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import pl.coderslab.charity.domain.Category;
 import pl.coderslab.charity.domain.Donation;
 import pl.coderslab.charity.domain.Institution;
@@ -48,13 +47,8 @@ public class DonationController {
     public String addDonation(@Valid Donation donation, BindingResult bindingResult){
 
         if (bindingResult.hasErrors()) {
-            System.out.println("******************************************************************");
-            System.out.println(donation);
             return "form";
         }
-
-        System.out.println("***ok*****ok********ok******ok*********ok*******ok******");
-        System.out.println(donation);
         drepo.save(donation);
 
         return "form-confirmation";
